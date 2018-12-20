@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.merlindev.budgetmeterwidget">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.ACTION_VIEW" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".BudgetMeterAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="net.merlindev.budgetmeterwidget.BudgetMeterAppWidgetProvider.ACTION_CLICK" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/budgetmeter_appwidget_info" />
+        </receiver>
+
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/title_activity_test"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
